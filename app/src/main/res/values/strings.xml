@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecyclerViewTutorial</string>
+    <string name="hotel_search_results">Hotel search results</string>
+    <string name="hotel_image">Hotel Image</string>
+    <string name="move_to_search_hotels">Move to search hotels</string>
+    <string name="search_hotels">Search hotels</string>
+    <string name="content_description">This is where you can define your custom layout for displaying details of a single hotel.Checkout the API I have mentioned and there are numerous endpoints for you to play around with and create an entire app if you desire</string>
+</resources>

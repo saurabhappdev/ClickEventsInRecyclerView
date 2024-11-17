@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="hotelSearchResults"
+            type="com.mediumarticles.recyclerviewtutorial.ui.hotels.viewmodel.HotelSearchResultsViewModel" />
+        <variable
+            name="adapter"
+            type="com.mediumarticles.recyclerviewtutorial.ui.hotels.adapter.HotelSearchResultsRecyclerAdapter" />
+        <import type="android.view.View"/>
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.hotels.HotelSearchResultsActivity">
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/searchResultHotelsAppBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#039BE5">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="@string/hotel_search_results"/>
+
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>
+
+
+        
+        
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchResultHotelsAppBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:adapter="@{adapter}"
+        tools:listitem="@layout/replicated_layout"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

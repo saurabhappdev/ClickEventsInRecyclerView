@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="singleCardData"
+            type="com.mediumarticles.recyclerviewtutorial.model.custom.SearchResultCardData" />
+        <variable
+            name="onClickHandler"
+            type="com.mediumarticles.recyclerviewtutorial.utils.ClickEventHandler" />
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:onClick="@{() -> onClickHandler.onItemClick(singleCardData.hotelId)}"
+        android:padding="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+           />
+
+        <!-- Hotel Image -->
+        <ImageView
+            android:id="@+id/hotelImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            imageUrl="@{singleCardData.hotelUrl}"
+            android:contentDescription="@string/hotel_image"
+            android:scaleType="centerCrop" />
+
+        <!-- Hotel Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp">
+
+            <!-- Hotel Name -->
+            <TextView
+                android:id="@+id/hotelName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{singleCardData.hotelName}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Hotel Address -->
+            <TextView
+                android:id="@+id/hotelAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{singleCardData.hotelAddress}"
+                android:textSize="14sp" />
+
+            <!-- City and Country -->
+            <TextView
+                android:id="@+id/cityCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`City`+ singleCardData.hotelCity+` Country:` +singleCardData.hotelCountry}"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Review Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Review Score -->
+            <TextView
+                android:id="@+id/reviewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@{`Rating:`+singleCardData.hotelNumericRating}"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Review Score Text -->
+            <TextView
+                android:id="@+id/reviewScoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{singleCardData.hotelTextRating}"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
